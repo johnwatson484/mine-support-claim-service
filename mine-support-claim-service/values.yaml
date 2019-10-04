@@ -2,7 +2,9 @@ environment: development
 image: mine-support-claim-service
 name: mine-support-claim-service
 auth:
-imagePullSecret: 
+imagePullSecret:
+service:
+  port: 80
 
 container:  
   imagePullPolicy: IfNotPresent
