@@ -1,0 +1,4 @@
+environment: production
+image: minesupport.azurecr.io/mine-support-web
+container:
+  imagePullPolicy: Always

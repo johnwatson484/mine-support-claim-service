@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+variables:
+  azureContainerRegistry: MineSupport
+  azureContainerRegistryFull: MineSupport.azurecr.io
+  azureSubscriptionEndpoint: MineSupport
+  azureResourceGroup: MineSupport
+  imageName: mine-support-claim-service
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: DockerCompose@0
+  inputs:
+    action: Build services
+    containerregistrytype: Azure Container Registry
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistryFull)
+    dockerComposeFile: docker-compose.yaml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+  displayName: build base image
+
+- task: DockerCompose@0
+  inputs:
+    action: Push services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistryFull)
+    dockerComposeFile: docker-compose.yaml
+    qualifyImageNames: true
+  displayName: Push container to registry
