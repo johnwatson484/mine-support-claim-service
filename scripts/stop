@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+(
+  cd "${projectRoot}"
+
+  existingServices="$( docker-compose ps -q )"
+  existingVolumes="$( docker volume ls --filter name=^mine-support --format={{.Name}} )"
+
+  if [ -n "${existingServices}${existingVolumes}" ]; then
+    docker-compose down -v
+  fi
+)
