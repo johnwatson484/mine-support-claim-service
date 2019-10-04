@@ -1,0 +1,29 @@
+{
+  "name": "mine-support-claim-service",
+  "version": "0.0.1",
+  "description": "Mock digital service",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "start": "node index.js",
+    "unit-test": "lab -c -r console -o stdout -r lcov -o lcov.info",
+    "test": "npm run lint && npm run unit-test"
+  },
+  "author": "John Watson",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "^7.4.7",
+    "@hapi/good": "^8.2.2",
+    "@hapi/good-console": "^8.1.2",
+    "@hapi/good-squeeze": "^5.2.1",
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/joi": "^16.1.2",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
+    "@hapi/code": "^6.0.0",
+    "@hapi/lab": "^20.2.2",
+    "blipp": "^4.0.1",
+    "standard": "^14.3.1"
+  }
+}
