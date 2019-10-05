@@ -1,4 +1,4 @@
 environment: production
-image: minesupport.azurecr.io/mine-support-web
+image: minesupport.azurecr.io/mine-support-claim-service
 container:
   imagePullPolicy: Always
