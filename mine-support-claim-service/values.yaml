@@ -3,6 +3,7 @@ image: mine-support-claim-service
 name: mine-support-claim-service
 auth:
 imagePullSecret:
+receiveClaimConnectionString:
 service:
   port: 80
 

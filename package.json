@@ -19,7 +19,9 @@
     "@hapi/good-squeeze": "^5.2.1",
     "@hapi/hapi": "^18.4.0",
     "@hapi/joi": "^16.1.2",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "rhea": "^1.0.10",
+    "rhea-promise": "^1.0.0"
   },
   "devDependencies": {
     "@hapi/code": "^6.0.0",
