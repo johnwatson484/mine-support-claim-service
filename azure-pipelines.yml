@@ -47,7 +47,7 @@ steps:
       az acr helm repo add
       helm package ./mine-support-claim-service --save
       packageFile=`ls mine-support-claim-service-* |  xargs echo`
-      az acr helm push --force $packageFile
+      az acr helm push -n mine-support-claim-service --force $packageFile
       az acr helm list
     failOnStandardError: false
   displayName: add Helm chart to registry
