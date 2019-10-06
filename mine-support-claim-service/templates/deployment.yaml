@@ -44,6 +44,10 @@ spec:
           value: "3001"
         - name: MESSAGE_HOST
           value: {{ .Values.container.messageHost }}
+        - name: MESSAGE_PORT
+          value: {{ .Values.container.messagePort | quote }}
+        - name: MESSAGE_TRANSPORT
+          value: {{ .Values.container.messageTransport }}
         - name: CLAIM_MESSAGE_USERNAME
           value: {{ .Values.container.claimMessageUsername }}
         - name: CLAIM_MESSAGE_PASSWORD

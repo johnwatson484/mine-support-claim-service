@@ -2,3 +2,5 @@ environment: production
 image: minesupport.azurecr.io/mine-support-claim-service
 container:
   imagePullPolicy: Always
+  messagePort: 5671
+  messageTransport: ssl

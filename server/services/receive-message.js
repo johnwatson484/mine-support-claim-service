@@ -37,7 +37,7 @@ function configureReceiver (address) {
 
 function setConnectionOptions (config) {
   return {
-    transport: 'ssl',
+    transport: config.transport,
     host: config.host,
     hostname: config.hostname,
     username: config.username,

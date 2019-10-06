@@ -20,9 +20,11 @@ container:
   allowPrivilegeEscalation: false
   restartPolicy: Always
   restClientTimeoutMillis: 20000
-  messageHost:
-  claimMessageUsername:
-  claimMessagePassword:
+  messageHost: docker.host.internal
+  messagePort: 5672
+  messageTransport: tcp
+  claimMessageUsername: artemis
+  claimMessagePassword: artemis
   
 ingress:
   serviceName: mine-support-claim-service

@@ -5,12 +5,12 @@ const schema = joi.object().keys({
   port: joi.number().default(3001),
   env: joi.string().valid(...envs).default(envs[0]),
   messageQueue: joi.object().keys({
-    transport: joi.string().default('ssl'),
+    transport: joi.string().default('tcp'),
     host: joi.string(),
     hostname: joi.string(),
     username: joi.string(),
     password: joi.string(),
-    port: joi.number().default(5671),
+    port: joi.number().default(5672),
     queue: joi.string().default('claim')
   })
 })
