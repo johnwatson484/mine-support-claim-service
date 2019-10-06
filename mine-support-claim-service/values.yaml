@@ -20,6 +20,9 @@ container:
   allowPrivilegeEscalation: false
   restartPolicy: Always
   restClientTimeoutMillis: 20000
+  messageHost:
+  claimMessageUsername:
+  claimMessagePassword:
   
 ingress:
   serviceName: mine-support-claim-service

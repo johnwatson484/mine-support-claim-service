@@ -2,16 +2,9 @@ const rheaPromise = require('rhea-promise')
 const config = require('../config')
 
 module.exports = async function receive () {
-  let connectionOptions = {}
-
-  try {
-    connectionOptions = parseConnectionString(config.messageConnectionString)
-  } catch (err) {
-    console.error('unable to parse connection string', err)
-  }
-
+  const connectionOptions = setConnectionOptions(config.messageQueue)
   const connection = new rheaPromise.Connection(connectionOptions)
-  const receiverOptions = configureReceiver(config.messageQueue)
+  const receiverOptions = configureReceiver(config.messageQueue.queue)
 
   await connection.open()
   const receiver = await connection.createReceiver(receiverOptions)
@@ -42,27 +35,14 @@ function configureReceiver (address) {
   }
 }
 
-function parseConnectionString (connectionString) {
-  const hostFlag = 'Endpoint=sb://'
-  const hostFlagLocation = connectionString.indexOf(hostFlag)
-  const sharedAccessKeyNameFlag = ';SharedAccessKeyName='
-  const sharedAccessKeyNameFlagLocation = connectionString.indexOf(sharedAccessKeyNameFlag)
-  const sharedAccessKeyFlag = ';SharedAccessKey='
-  const sharedAccessKeyFlagLocation = connectionString.indexOf(sharedAccessKeyFlag)
-  const entityPathFlag = ';EntityPath='
-  const entityPathLocation = connectionString.indexOf(entityPathFlag)
-  const host = connectionString.substring(hostFlagLocation + hostFlag.length, sharedAccessKeyNameFlagLocation).replace('/', '')
-  const sharedAccessKeyName = connectionString.substring(sharedAccessKeyNameFlagLocation + sharedAccessKeyNameFlag.length, sharedAccessKeyFlagLocation)
-  const SharedAccessKey = connectionString.substring(sharedAccessKeyFlagLocation + sharedAccessKeyFlag.length, entityPathLocation > -1 ? entityPathLocation : connectionString.length)
-
-  const connectionOptions = {
+function setConnectionOptions (config) {
+  return {
     transport: 'ssl',
-    host: host,
-    hostname: host,
-    username: sharedAccessKeyName,
-    password: SharedAccessKey,
-    port: 5671
+    host: config.host,
+    hostname: config.hostname,
+    username: config.username,
+    password: config.password,
+    port: config.port,
+    reconnect: true
   }
-  console.log('connection string parsed')
-  return connectionOptions
 }

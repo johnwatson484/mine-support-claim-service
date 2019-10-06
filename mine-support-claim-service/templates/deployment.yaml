@@ -42,8 +42,12 @@ spec:
           value: {{ .Values.environment }}
         - name: PORT
           value: "3001"
-        - name: RECEIVE_CLAIM_CONNECTION_STRING
-          value: {{ .Values.receiveClaimConnectionString }}     
+        - name: MESSAGE_HOST
+          value: {{ .Values.container.messageHost }}
+        - name: CLAIM_MESSAGE_USERNAME
+          value: {{ .Values.container.claimMessageUsername }}
+        - name: CLAIM_MESSAGE_PASSWORD
+          value: {{ .Values.container.claimMessagePassword }}
         ports:
         - name: http
           containerPort: 3001
