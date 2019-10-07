@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-if [ "${link}" = "true" ] && [ -z "$(docker network ls --filter name=^mine-support$ --format={{.Name}})" ]; then
+if [ -z "$(docker network ls --filter name=^mine-support$ --format={{.Name}})" ]; then
   echo "Creating mine-support network."
   docker network create mine-support
 fi
@@ -10,5 +10,5 @@ projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; p
 (
   cd "${projectRoot}"
 
-  docker-compose up --force-recreate $@
+  docker-compose -f docker-compose.yaml -f docker-compose.message.yaml up --force-recreate $@
 )

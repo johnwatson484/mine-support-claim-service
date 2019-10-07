@@ -10,7 +10,7 @@ projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; p
   existingVolumes="$( docker volume ls --filter name=^mine-support --format={{.Name}} )"
 
   if [ -n "${existingServices}${existingVolumes}" ]; then
-    docker-compose down -v
+    docker-compose -f docker-compose.yaml -f docker-compose.message.yaml down -v
   fi
 )
 
