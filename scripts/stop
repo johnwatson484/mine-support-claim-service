@@ -13,3 +13,10 @@ projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; p
     docker-compose down -v
   fi
 )
+
+if [ -n "$(docker network ls --filter name=^mine-support$ --format={{.Name}})" ] \
+  && [ "$(docker network inspect -f {{.Containers}} mine-support &>/dev/null)" = "map[]" ] \
+; then
+  echo "Removing mine-support network."
+  docker network rm mine-support
+fi
