@@ -1,5 +1,6 @@
 const rheaPromise = require('rhea-promise')
 const config = require('../config')
+const claimService = require('./claim-service')
 
 module.exports = async function receive () {
   const connectionOptions = setConnectionOptions(config.messageQueue)
@@ -10,7 +11,7 @@ module.exports = async function receive () {
   const receiver = await connection.createReceiver(receiverOptions)
 
   receiver.on(rheaPromise.ReceiverEvents.message, (context) => {
-    console.log('received claim - %O', context.message.body)
+    claimService(context.message.body)
   })
   receiver.on(rheaPromise.ReceiverEvents.receiverError, (context) => {
     const receiverError = context.receiver && context.receiver.error
