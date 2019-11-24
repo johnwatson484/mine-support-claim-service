@@ -1,6 +1,7 @@
 version: '3'
 services:
   mine-support-claim-service:
+    command: sh -c 'scripts/wait-for.sh mine-support-message:8161 -- npm run start:watch'
     depends_on: 
       - mine-support-message
 
