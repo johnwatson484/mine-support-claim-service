@@ -1,5 +1,5 @@
 #!/bin/sh
-TIMEOUT=15
+TIMEOUT=30
 QUIET=0
 
 echoerr() {
