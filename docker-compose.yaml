@@ -13,9 +13,3 @@ services:
       CLAIM_MESSAGE_PASSWORD: artemis 
     ports:
       - "3001:3001"
-    volumes:
-      - node_modules:/usr/src/app/node_modules
-      - .:/usr/src/app
-
-volumes:
-  node_modules:
