@@ -1,9 +1,17 @@
 version: '3'
 services:
   mine-support-claim-service:
-    command: sh -c 'scripts/wait-for.sh mine-support-message:8161 -- npm run start:watch'
+    command: sh -c 'scripts/wait-for.sh mine-support-claim-postgres:5432 -- scripts/wait-for.sh mine-support-message:8161 -- npm run start:watch'
     depends_on: 
       - mine-support-message
+      - mine-support-claim-postgres
+    environment:
+      POSTGRES_HOST: mine-support-claim-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: claims
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    
 
   mine-support-message:
     container_name: mine-support-message
@@ -21,9 +29,20 @@ services:
       - message-queue-etc-override:/var/lib/artemis/etc-override
       - message-queue-lock:/var/lib/artemis/lock
 
+  mine-support-claim-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: claims
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
 volumes:
   message-queue-data: {}
   message-queue-tmp: {}
   message-queue-etc: {}
   message-queue-etc-override: {}
   message-queue-lock: {}
+  postgres_data: {}

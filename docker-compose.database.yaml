@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mine-support-claim-service:
+    depends_on:
+      - mine-support-claim-postgres
+    environment:
+      POSTGRES_HOST: mine-support-claim-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: claims
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+
+  mine-support-claim-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: claims
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
