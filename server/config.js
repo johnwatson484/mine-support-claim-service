@@ -12,7 +12,15 @@ const schema = joi.object().keys({
     password: joi.string(),
     port: joi.number().default(5672),
     queue: joi.string().default('claim')
-  })
+  }),
+  database: {
+    name: joi.string().default('claims'),
+    host: joi.string().default('localhost'),
+    port: joi.number().default(5432),
+    dialect: joi.string().default('postgres'),
+    username: joi.string(),
+    password: joi.string()
+  }
 })
 
 // Build config
@@ -27,6 +35,14 @@ const config = {
     password: process.env.CLAIM_MESSAGE_PASSWORD,
     port: process.env.MESSAGE_PORT,
     queue: process.env.CLAIM_MESSAGE_QUEUE
+  },
+  database: {
+    name: process.env.CLAIM_DB_NAME,
+    host: process.env.CLAIM_DB_HOST,
+    port: process.env.CLAIM_DB_PORT,
+    dialect: process.env.CLAIM_DB_DIALECT,
+    username: process.env.CLAIM_DB_USERNAME,
+    password: process.env.CLAIM_DB_PASSWORD
   }
 }
 

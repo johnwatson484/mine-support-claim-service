@@ -10,6 +10,9 @@ services:
       MESSAGE_PORT: 5672
       MESSAGE_TRANSPORT: tcp
       CLAIM_MESSAGE_USERNAME: artemis
-      CLAIM_MESSAGE_PASSWORD: artemis 
+      CLAIM_MESSAGE_PASSWORD: artemis
+      CLAIM_DB_NAME: claims
+      CLAIM_DB_USERNAME: postgres
+      CLAIM_DB_PASSWORD: postgres
     ports:
       - "3001:3001"
