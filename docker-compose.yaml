@@ -5,13 +5,9 @@ services:
     image: mine-support-claim-service
     container_name: mine-support-claim-service
     command: npm run start:watch
-    environment:
-      MESSAGE_HOST: mine-support-message
-      MESSAGE_PORT: 5672
-      MESSAGE_TRANSPORT: tcp
+    environment:      
       CLAIM_MESSAGE_USERNAME: artemis
       CLAIM_MESSAGE_PASSWORD: artemis
-      CLAIM_DB_NAME: claims
       CLAIM_DB_USERNAME: postgres
       CLAIM_DB_PASSWORD: postgres
     ports:

@@ -1,15 +1,11 @@
 const Sequelize = require('sequelize')
-const config = require('../config')
+const config = require('../config/database-config')
 const fs = require('fs')
 const path = require('path')
 const basename = path.basename(__filename)
 const db = {}
 
-const sequelize = new Sequelize(config.database.name, config.database.username, config.database.password, {
-  host: config.database.host,
-  port: config.database.port,
-  dialect: config.database.dialect
-})
+const sequelize = new Sequelize(config.database, config.username, config.password, config)
 
 fs
   .readdirSync(__dirname)
