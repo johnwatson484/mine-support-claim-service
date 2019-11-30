@@ -4,6 +4,7 @@
   "description": "Mock digital service",
   "main": "index.js",
   "scripts": {
+    "migrate": "sequelize db:migrate",
     "lint": "standard",
     "start": "node index.js",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js,njk --legacy-watch index.js",
