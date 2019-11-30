@@ -24,7 +24,8 @@
     "pg-hstore": "^2.3.3",
     "rhea": "^1.0.10",
     "rhea-promise": "^1.0.0",
-    "sequelize": "^5.21.2"
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "@hapi/code": "^6.0.0",
