@@ -29,7 +29,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
-    "@hapi/code": "^6.0.0",
+    "@hapi/code": "^7.0.0",
     "@hapi/lab": "^21.0.0",
     "blipp": "^4.0.1",
     "standard": "^14.3.1"
