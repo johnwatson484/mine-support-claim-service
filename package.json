@@ -14,7 +14,7 @@
   "author": "John Watson",
   "license": "MIT",
   "dependencies": {
-    "@hapi/boom": "^7.4.7",
+    "@hapi/boom": "^8.0.1",
     "@hapi/good": "^8.2.2",
     "@hapi/good-console": "^8.1.2",
     "@hapi/good-squeeze": "^5.2.1",
