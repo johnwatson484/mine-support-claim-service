@@ -24,8 +24,8 @@ steps:
     SonarQube: 'SonarQube'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'MineSupport'
-    cliProjectName: 'MineSupport'
+    cliProjectKey: 'mine-support-claim-service'
+    cliProjectName: 'mine-support-claim-service'
     cliSources: '.'
 
 - task: SonarQubeAnalyze@4
