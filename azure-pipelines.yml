@@ -24,8 +24,8 @@ steps:
     SonarQube: 'SonarQube'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'LynxMagnus'
-    cliProjectName: 'Lynx Magnus'
+    cliProjectKey: 'MineSupport'
+    cliProjectName: 'MineSupport'
     cliSources: '.'
 
 - task: SonarQubeAnalyze@4
