@@ -29,6 +29,7 @@ steps:
     cliSources: '.'
 
 - task: SonarQubeAnalyze@4
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
 - task: SonarQubePublish@4
   inputs:
