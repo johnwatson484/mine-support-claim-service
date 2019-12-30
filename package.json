@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@hapi/code": "^7.0.0",
-    "@hapi/lab": "^21.0.0",
+    "@hapi/lab": "^22.0.2",
     "blipp": "^4.0.1",
     "standard": "^14.3.1"
   }
