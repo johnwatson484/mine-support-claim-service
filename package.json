@@ -19,7 +19,7 @@
     "@hapi/good-console": "^8.1.2",
     "@hapi/good-squeeze": "^5.2.1",
     "@hapi/hapi": "^18.4.0",
-    "@hapi/joi": "^16.1.8",
+    "@hapi/joi": "^17.0.2",
     "nodemon": "^2.0.2",
     "pg": "^7.17.0",
     "pg-hstore": "^2.3.3",
