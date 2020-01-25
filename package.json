@@ -14,23 +14,23 @@
   "author": "John Watson",
   "license": "MIT",
   "dependencies": {
-    "@hapi/boom": "^7.4.7",
-    "@hapi/good": "^8.2.2",
+    "@hapi/boom": "^8.0.1",
+    "@hapi/good": "^8.2.4",
     "@hapi/good-console": "^8.1.2",
     "@hapi/good-squeeze": "^5.2.1",
     "@hapi/hapi": "^18.4.0",
-    "@hapi/joi": "^16.1.2",
-    "nodemon": "^1.19.2",
-    "pg": "^7.14.0",
+    "@hapi/joi": "^16.1.8",
+    "nodemon": "^2.0.2",
+    "pg": "^7.17.0",
     "pg-hstore": "^2.3.3",
-    "rhea": "^1.0.10",
+    "rhea": "^1.0.15",
     "rhea-promise": "^1.0.0",
-    "sequelize": "^5.21.2",
+    "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
-    "@hapi/code": "^6.0.0",
-    "@hapi/lab": "^20.2.2",
+    "@hapi/code": "^7.0.0",
+    "@hapi/lab": "^22.0.2",
     "blipp": "^4.0.1",
     "standard": "^14.3.1"
   }
