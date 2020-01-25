@@ -1,9 +1,0 @@
-version: '3'
-services:
-  mine-support-claim-service:    
-    volumes:
-      - node_modules:/usr/src/app/node_modules
-      - .:/usr/src/app
-
-volumes:
-  node_modules:
