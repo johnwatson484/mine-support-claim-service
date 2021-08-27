@@ -36,14 +36,14 @@ function configureReceiver (address) {
   }
 }
 
-function setConnectionOptions (config) {
+function setConnectionOptions (connConfig) {
   return {
-    transport: config.transport,
-    host: config.host,
-    hostname: config.hostname,
-    username: config.username,
-    password: config.password,
-    port: config.port,
+    transport: connConfig.transport,
+    host: connConfig.host,
+    hostname: connConfig.hostname,
+    username: connConfig.username,
+    password: connConfig.password,
+    port: connConfig.port,
     reconnect: true
   }
 }
